@@ -2,7 +2,7 @@
   "name": "react-submittable",
   "version": "1.0.0",
   "description": "a replacement for preventing the default behavior of forms: allows submission on enter",
-  "main": "index.jjs",
+  "main": "index.js",
   "scripts": {
     "test": "jest && coveralls < coverage/lcov.info"
   },
