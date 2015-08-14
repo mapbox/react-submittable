@@ -2,9 +2,10 @@
   "name": "react-submittable",
   "version": "1.0.0",
   "description": "a replacement for preventing the default behavior of forms: allows submission on enter",
-  "main": "index.js",
+  "main": "dist/submittable.js",
   "scripts": {
-    "test": "jest && coveralls < coverage/lcov.info"
+    "test": "jest && coveralls < coverage/lcov.info",
+    "build": "babel index.js > dist/submittable.js"
   },
   "keywords": [
     "submit",
@@ -15,7 +16,6 @@
   "author": "Tom MacWright",
   "license": "ISC",
   "devDependencies": {
-    "babelify": "^6.1.3",
     "jest-cli": "^0.4.18",
     "react-tools": "^0.13.3"
   },
@@ -27,6 +27,7 @@
     "collectCoverage": true
   },
   "dependencies": {
+    "babel": "^5.8.21",
     "coveralls": "^2.11.4",
     "react": "*"
   }
