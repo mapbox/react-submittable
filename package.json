@@ -28,5 +28,9 @@
   "dependencies": {
     "coveralls": "^2.11.4",
     "react": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mapbox/react-submittable.git"
   }
 }
