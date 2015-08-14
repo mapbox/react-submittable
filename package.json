@@ -2,10 +2,9 @@
   "name": "react-submittable",
   "version": "1.0.0",
   "description": "a replacement for preventing the default behavior of forms: allows submission on enter",
-  "main": "dist/submittable.js",
+  "main": "index.jjs",
   "scripts": {
-    "test": "jest && coveralls < coverage/lcov.info",
-    "build": "babel index.js > dist/submittable.js"
+    "test": "jest && coveralls < coverage/lcov.info"
   },
   "keywords": [
     "submit",
@@ -27,7 +26,6 @@
     "collectCoverage": true
   },
   "dependencies": {
-    "babel": "^5.8.21",
     "coveralls": "^2.11.4",
     "react": "*"
   }
