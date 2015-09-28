@@ -25,10 +25,16 @@ var Submittable = React.createClass({
       }
     }
   },
+  onSubmit: function(event) {
+    event.preventDefault();
+  },
   render: function render() {
     return React.createElement(
-      'div',
-      _extends({ onKeyDown: this.onKeyDown }, this.props),
+      'form',
+      _extends({
+        onKeyDown: this.onKeyDown,
+        onSubmit: this.onSubmit
+      }, this.props),
       this.props.children
     );
   }
