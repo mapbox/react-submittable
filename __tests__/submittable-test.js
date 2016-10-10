@@ -1,39 +1,29 @@
-jest.dontMock('../index.js');
-describe('Submittable', function() {
-  it('calls onEnter when it gets an enter event', function(done) {
-    var React = require('react/addons');
-    var Submittable = require('../index.js');
-    var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var enzyme = require('enzyme');
+var Submittable = require('../index.js');
 
+describe('Submittable', function() {
+  it('calls onEnter when it gets an enter event', function() {
     // Render a checkbox with label in the document
-    var pseudoForm = TestUtils.renderIntoDocument(
+    var wrapper = enzyme.mount(
       <Submittable onEnter={onEnter}>
         <input type='text' />
       </Submittable>);
 
     var onEnterCalled = false;
-    function onEnter(event) {
+    function onEnter() {
       onEnterCalled = true;
     }
 
     // Simulate a click and verify that it is now On
-    var input = TestUtils.findRenderedDOMComponentWithTag(
-      pseudoForm, 'input');
+    wrapper.find('input').simulate('keyDown', { key: 'Enter', keyCode: 13 });
 
-    TestUtils.Simulate.keyDown(input, { key: "Enter", keyCode: 13 });
-
-    waitsFor(function() {
-      return onEnterCalled;
-    });
+    expect(onEnterCalled).toBe(true);
   });
 
-  it('calls onCancel when it gets an exit event and has a binding', function(done) {
-    var React = require('react/addons');
-    var Submittable = require('../index.js');
-    var TestUtils = React.addons.TestUtils;
-
+  it('calls onCancel when it gets an exit event and has a binding', function() {
     // Render a checkbox with label in the document
-    var pseudoForm = TestUtils.renderIntoDocument(
+    var wrapper = enzyme.mount(
       <Submittable
         onCancel={onCancel}
         onEnter={onEnter}>
@@ -51,13 +41,8 @@ describe('Submittable', function() {
     }
 
     // Simulate a click and verify that it is now On
-    var input = TestUtils.findRenderedDOMComponentWithTag(
-      pseudoForm, 'input');
+    wrapper.find('input').simulate('keyDown', { key: "Escape", keyCode: 27 });
 
-    TestUtils.Simulate.keyDown(input, { key: "Escape", keyCode: 27 });
-
-    waitsFor(function() {
-      return onCancelCalled;
-    });
+    expect(onCancelCalled).toBe(true);
   });
 });
