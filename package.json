@@ -4,7 +4,8 @@
   "description": "a replacement for preventing the default behavior of forms: allows submission on enter",
   "main": "index.js",
   "scripts": {
-    "test": "jest && coveralls < coverage/lcov.info"
+    "jest": "jest",
+    "test": "npm run jest"
   },
   "keywords": [
     "submit",
@@ -15,16 +16,17 @@
   "author": "Tom MacWright",
   "license": "ISC",
   "devDependencies": {
-    "jest-cli": "^0.4.18",
-    "coveralls": "^2.11.4",
-    "react-tools": "^0.13.3"
+    "babel-jest": "^16.0.0",
+    "babel-preset-react": "^6.16.0",
+    "enzyme": "^2.4.1",
+    "jest": "^16.0.1",
+    "react-addons-test-utils": "^15.3.2",
+    "react-dom": "^15.3.2"
   },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/preprocessor.js",
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react"
-    ],
-    "collectCoverage": true
+  "babel": {
+    "presets": [
+      "react"
+    ]
   },
   "dependencies": {
     "react": "*"
@@ -32,5 +34,8 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:mapbox/react-submittable.git"
+  },
+  "jest": {
+    "collectCoverage": true
   }
 }
