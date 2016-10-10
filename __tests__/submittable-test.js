@@ -45,4 +45,26 @@ describe('Submittable', function() {
 
     expect(onCancelCalled).toBe(true);
   });
+
+  it('does not pass Submittable-specific props to the <form> element', function() {
+    function onCancel() {}
+    function onEnter() {}
+
+    var wrapper = enzyme.shallow(
+      <Submittable
+        onCancel={onCancel}
+        onEnter={onEnter}
+        data-test='foobar'
+        disabled={true}>
+        <input type='text' />
+      </Submittable>);
+
+    var formProps = wrapper.find('form').props();
+    expect(typeof formProps.onKeyDown).toBe('function');
+    expect(typeof formProps.onSubmit).toBe('function');
+    expect(formProps['data-test']).toBe('foobar');
+    expect(formProps.disabled).toBe(true);
+    expect(formProps.onCancel).toBe(undefined);
+    expect(formProps.onEnter).toBe(undefined);
+  });
 });
