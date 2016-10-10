@@ -1,8 +1,12 @@
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var React = require('react');
+
+var propTypes = {
+  children: React.PropTypes.any.isRequired,
+  onEnter: React.PropTypes.func.isRequired,
+  onCancel: React.PropTypes.func
+};
 
 /**
  * The submittable component is a replacement for form inputs that
@@ -11,11 +15,7 @@ var React = require('react');
  */
 var Submittable = React.createClass({
   displayName: 'Submittable',
-  propTypes: {
-    children: React.PropTypes.any.isRequired,
-    onEnter: React.PropTypes.func.isRequired,
-    onCancel: React.PropTypes.func
-  },
+  propTypes: propTypes,
   onKeyDown: function onKeyDown(event) {
     if (event.target.tagName === 'INPUT') {
       if (event.keyCode === 13) {
@@ -29,12 +29,17 @@ var Submittable = React.createClass({
     event.preventDefault();
   },
   render: function render() {
+    var formProps = {
+      onKeyDown: this.onKeyDown,
+      onSubmit: this.onSubmit
+    };
+    Object.keys(this.props).forEach(function(key) {
+      if (propTypes[key] !== undefined) return;
+      formProps[key] = this.props[key];
+    }, this);
     return React.createElement(
       'form',
-      _extends({
-        onKeyDown: this.onKeyDown,
-        onSubmit: this.onSubmit
-      }, this.props),
+      formProps,
       this.props.children
     );
   }
