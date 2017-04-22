@@ -1,10 +1,13 @@
 {
   "name": "react-submittable",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a replacement for preventing the default behavior of forms: allows submission on enter",
-  "main": "index.js",
+  "main": "dist/submittable.js",
   "scripts": {
+    "build": "babel src -d dist",
     "jest": "jest",
+    "pretest": "npm run build",
+    "prepublish": "npm run build",
     "test": "npm run jest"
   },
   "keywords": [
@@ -16,20 +19,27 @@
   "author": "Tom MacWright",
   "license": "ISC",
   "devDependencies": {
-    "babel-jest": "^16.0.0",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.16.0",
-    "enzyme": "^2.4.1",
-    "jest": "^16.0.1",
-    "react-addons-test-utils": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "enzyme": "^2.8.2",
+    "jest": "^19.0.2",
+    "prettier": "^1.2.2",
+    "react-dom": "^15.5.4"
   },
   "babel": {
     "presets": [
-      "react"
+      "react",
+      "es2015"
+    ],
+    "plugins": [
+      "transform-class-properties"
     ]
   },
   "dependencies": {
-    "react": "*"
+    "react": "^15.5.4",
+    "react-test-renderer": "^15.5.4"
   },
   "repository": {
     "type": "git",

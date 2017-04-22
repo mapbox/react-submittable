@@ -1,22 +1,14 @@
-'use strict';
+const React = require('react');
 
-var React = require('react');
-
-var propTypes = {
-  children: React.PropTypes.any.isRequired,
-  onEnter: React.PropTypes.func.isRequired,
-  onCancel: React.PropTypes.func
-};
+const propNames = ['onEnter', 'onCancel'];
 
 /**
  * The submittable component is a replacement for form inputs that
  * replicates their onSubmit handler - pressing 'Enter' with the cursor
  * focused on an input element calls an onEvent property.
  */
-var Submittable = React.createClass({
-  displayName: 'Submittable',
-  propTypes: propTypes,
-  onKeyDown: function onKeyDown(event) {
+class Submittable extends React.Component {
+  onKeyDown = (event) => {
     if (event.target.tagName === 'INPUT') {
       if (event.keyCode === 13) {
         this.props.onEnter(event);
@@ -24,25 +16,27 @@ var Submittable = React.createClass({
         this.props.onCancel(event);
       }
     }
-  },
-  onSubmit: function(event) {
+  };
+
+  onSubmit = (event) => {
     event.preventDefault();
-  },
-  render: function render() {
-    var formProps = {
+  };
+
+  render() {
+    const formProps = {
       onKeyDown: this.onKeyDown,
       onSubmit: this.onSubmit
     };
-    Object.keys(this.props).forEach(function(key) {
-      if (propTypes[key] !== undefined) return;
+    Object.keys(this.props).forEach(key => {
+      if (propNames.indexOf(key) !== -1) return;
       formProps[key] = this.props[key];
-    }, this);
+    });
     return React.createElement(
       'form',
       formProps,
       this.props.children
     );
   }
-});
+}
 
 module.exports = Submittable;

@@ -1,6 +1,6 @@
 var React = require('react');
 var enzyme = require('enzyme');
-var Submittable = require('../index.js');
+var Submittable = require('../dist/submittable.js');
 
 describe('Submittable', function() {
   it('calls onEnter when it gets an enter event', function() {
