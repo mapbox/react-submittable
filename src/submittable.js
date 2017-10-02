@@ -8,7 +8,7 @@ const propNames = ['onEnter', 'onCancel'];
  * focused on an input element calls an onEvent property.
  */
 class Submittable extends React.Component {
-  onKeyDown = (event) => {
+  onKeyDown = event => {
     if (event.target.tagName === 'INPUT') {
       if (event.keyCode === 13) {
         this.props.onEnter(event);
@@ -18,7 +18,7 @@ class Submittable extends React.Component {
     }
   };
 
-  onSubmit = (event) => {
+  onSubmit = event => {
     event.preventDefault();
   };
 
@@ -31,11 +31,7 @@ class Submittable extends React.Component {
       if (propNames.indexOf(key) !== -1) return;
       formProps[key] = this.props[key];
     });
-    return React.createElement(
-      'form',
-      formProps,
-      this.props.children
-    );
+    return React.createElement('form', formProps, this.props.children);
   }
 }
 
