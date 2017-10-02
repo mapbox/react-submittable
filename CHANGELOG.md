@@ -1,6 +1,6 @@
 # Changelog
 
-## Head
+## 2.0.0
 
 - react and react-dom are now peer dependencies, instead of regular dependencies.
 - `dist/` no longer included in Git repo.
