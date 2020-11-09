@@ -1,6 +1,6 @@
 # react-submittable
 
-[![build status](https://secure.travis-ci.org/mapbox/react-submittable.svg)](http://travis-ci.org/mapbox/react-submittable)
+[![Build Status](https://travis-ci.com/mapbox/react-submittable.svg?branch=main)](https://travis-ci.com/mapbox/react-submittable)
 [![Coverage Status](https://coveralls.io/repos/mapbox/react-submittable/badge.svg?branch=main&service=github)](https://coveralls.io/github/mapbox/react-submittable?branch=master)
 
 Stop using `preventDefault` to get form behavior in React.
