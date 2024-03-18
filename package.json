@@ -1,5 +1,5 @@
 {
-  "name": "react-submittable",
+  "name": "@mapbox/react-submittable",
   "version": "2.1.0-alpha.0",
   "description": "a replacement for preventing the default behavior of forms: allows submission on enter",
   "main": "dist/submittable.js",
