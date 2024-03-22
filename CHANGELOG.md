@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0
+- Change the package name to @mapbox/react-submittable
+- Add react@18 to the allowed peer dependencies
+
 ## 2.0.0
 
 - react and react-dom are now peer dependencies, instead of regular dependencies.
