@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/react-submittable",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "a replacement for preventing the default behavior of forms: allows submission on enter",
   "main": "dist/submittable.js",
   "scripts": {
@@ -24,28 +24,29 @@
   "author": "Mapbox",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.16.0",
-    "enzyme": "^3.0.0",
-    "enzyme-adapter-react-16": "^1.0.0",
-    "jest": "^21.2.1",
-    "prettier": "^1.2.2",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-test-renderer": "^16.0.0"
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.3",
+    "@babel/plugin-transform-class-properties": "^7.24.1",
+    "@babel/preset-env": "^7.24.3",
+    "@babel/preset-react": "^7.24.1",
+    "@testing-library/react": "^14.2.2",
+    "@testing-library/user-event": "^14.5.2",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^3.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "prettier": {
     "singleQuote": true
   },
   "babel": {
     "presets": [
-      "react",
-      "env"
+      "@babel/preset-react",
+      "@babel/preset-env"
     ],
     "plugins": [
-      "transform-class-properties"
+      "@babel/plugin-transform-class-properties"
     ]
   },
   "peerDependencies": {
@@ -58,8 +59,6 @@
   },
   "jest": {
     "clearMocks": true,
-    "setupFiles": [
-      "<rootDir>/test/test-util/jest-setup.js"
-    ]
+    "testEnvironment": "jsdom"
   }
 }
