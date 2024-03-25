@@ -1,6 +1,6 @@
 {
-  "name": "react-submittable",
-  "version": "2.0.0",
+  "name": "@mapbox/react-submittable",
+  "version": "3.0.0",
   "description": "a replacement for preventing the default behavior of forms: allows submission on enter",
   "main": "dist/submittable.js",
   "scripts": {
@@ -49,8 +49,8 @@
     ]
   },
   "peerDependencies": {
-    "react": "^15.5.0 || ^16.0.0",
-    "react-dom": "^15.5.0 || ^16.0.0"
+    "react": "^15.5.0 || ^16.0.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^15.5.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "repository": {
     "type": "git",
