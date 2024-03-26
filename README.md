@@ -20,4 +20,4 @@ an `onCancel` event when it sees it.
 
 ## install
 
-    npm install --save react-submittable
+    npm install --save @mapbox/react-submittable
