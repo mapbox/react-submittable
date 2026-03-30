@@ -1,9 +1,15 @@
 # Changelog
 
+## 4.0.0
+
+- Upgrade to support react 19
+
 ## 3.0.1
+
 - Upgrade dependencies
 
 ## 3.0.0
+
 - Change the package name to @mapbox/react-submittable
 - Add react@18 to the allowed peer dependencies
 
