@@ -1,6 +1,6 @@
 {
   "name": "@mapbox/react-submittable",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "a replacement for preventing the default behavior of forms: allows submission on enter",
   "main": "dist/submittable.js",
   "scripts": {
@@ -60,5 +60,8 @@
   "jest": {
     "clearMocks": true,
     "testEnvironment": "jsdom"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
